@@ -1,0 +1,41 @@
+server:
+  port: 8080
+spring:
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: none
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    properties:
+      hibernate:
+        format_sql: true
+  datasource:
+    url: jdbc:mariadb://localhost:3306/luxent?useSSL=false&characterEncoding=UTF-8&serverTimezone=UTC
+    driver-class-name: org.mariadb.jdbc.Driver
+    username: root
+    password: 1234
+
+logging:
+  level:
+    org:
+      springframework:
+        web:
+          client: DEBUG
+
+# aws s3
+cloud:
+  aws:
+    stack:
+      auto: false
+    region:
+      static: ap-northeast-2
+    credentials:
+      access-key:
+      secret-key:
+    s3:
+      bucket: btrips
+
+fcm:
+  key:
+    path : btrips-db903-firebase-adminsdk-nhhz4-6a279ab0e3.json
